@@ -7,6 +7,11 @@ variable "subscription_id" {
   type = string
 }
 
+# Azure Tenant ID
+variable "tenant_id" {
+  type = string
+}
+
 # Azure Region (e.g. eastus)
 variable "location" {
   type    = string

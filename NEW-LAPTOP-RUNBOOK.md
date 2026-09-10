@@ -188,20 +188,20 @@ of what Terraform itself manages (so you can't accidentally destroy your
 own state backend with `terraform destroy`).
 
 ```powershell
-az group create --name <STATE_RG> --location <LOCATION>
+az group create --name credpaybaserg --location East Asia
 
 
 
 az storage account create `
-  --name <STATE_STORAGE> `
-  --resource-group <STATE_RG> `
-  --location <LOCATION> `
+  --name credpaystatesa123456 `
+  --resource-group credpaybaserg`
+  --location East Asia `
   --sku Standard_LRS `
   --encryption-services blob
 
 az storage container create `
   --name statefile `
-  --account-name <STATE_STORAGE> `
+  --account-name credpaystatesa123456  `
   --auth-mode login
 ```
 
@@ -212,8 +212,8 @@ live. Also created out-of-band, same reasoning as above.
 
 ```powershell
 az acr create `
-  --name <ACR_NAME> `
-  --resource-group <STATE_RG> `
+  --name credpayacrs1 `
+  --resource-group credpaystatesa123456 `
   --sku Basic
 ```
 
@@ -228,9 +228,9 @@ pipeline to read back later. Also created out-of-band.
 
 ```powershell
 az keyvault create `
-  --name <KV_NAME> `
-  --resource-group <STATE_RG> `
-  --location <LOCATION> `
+  --name credpays123kv-new `
+  --resource-group credpaybaserg `
+  --location East Asia `
   --enable-rbac-authorization true
 ```
 
@@ -247,7 +247,7 @@ grant the pipeline's identity the same permission in Step 6):
 az role assignment create `
   --assignee "$(az ad signed-in-user show --query id -o tsv)" `
   --role "Key Vault Secrets Officer" `
-  --scope "$(az keyvault show --name <KV_NAME>  
+  --scope "$(az keyvault show --name credpays123kv-new  
 ```
 
 Role assignments can take a minute or two to propagate — if the next step

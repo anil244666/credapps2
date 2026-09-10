@@ -9,6 +9,7 @@
 # =====================================================================
 
 # Azure Subscription ID
+tenant_id       = "54f704b8-d560-4338-8d16-78119b66016f"
 subscription_id = "eb2e4db4-1889-4351-9b48-102efd8a3a57"
 
 # Azure Region
