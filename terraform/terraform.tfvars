@@ -9,8 +9,8 @@
 # =====================================================================
 
 # Azure Subscription ID
-tenant_id       = "54f704b8-d560-4338-8d16-78119b66016f"
-subscription_id = "eb2e4db4-1889-4351-9b48-102efd8a3a57"
+tenant_id       = "31cb8928-3a2f-492d-b2fc-1fe23466d0c5"
+subscription_id = "82377c62-bcaf-4fae-a8bb-ca7d0edb51d2"
 
 # Azure Region
 location = "East Asia"
